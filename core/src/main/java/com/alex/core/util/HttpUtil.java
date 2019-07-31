@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class HttpUtil {
 
-    public static final Log logger = LogFactory.getLog(HttpUtil.class);
+    private static final Log logger = LogFactory.getLog(HttpUtil.class);
 
     /**
      * @Description: 向指定url发送post方法的请求

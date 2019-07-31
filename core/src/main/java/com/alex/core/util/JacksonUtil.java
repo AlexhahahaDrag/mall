@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class JacksonUtil {
 
-    public static final Log logger = LogFactory.getLog(JacksonUtil.class);
+    private static final Log logger = LogFactory.getLog(JacksonUtil.class);
 
     public static String parseString(String body, String field) {
         ObjectMapper mapper = new ObjectMapper();

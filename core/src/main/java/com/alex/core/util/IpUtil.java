@@ -16,7 +16,7 @@ import java.net.UnknownHostException;
 */
 public class IpUtil {
 
-    public static final Log logger = LogFactory.getLog(IpUtil.class);
+    private static final Log logger = LogFactory.getLog(IpUtil.class);
 
     public static String getIpAddr(HttpServletRequest request) {
         String ipAddress;
