@@ -1,11 +1,13 @@
 package com.alex.adminapi.shiro;
 
+import com.alex.db.service.LitemallAdminService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @Description:
@@ -15,6 +17,11 @@ import org.apache.shiro.subject.PrincipalCollection;
  *
 */
 public class AdminAuthorizingRealm extends AuthorizingRealm {
+
+    @Autowired
+    private LitemallAdminService adminService;
+
+
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
