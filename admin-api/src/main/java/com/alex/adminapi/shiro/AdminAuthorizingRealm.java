@@ -1,5 +1,6 @@
 package com.alex.adminapi.shiro;
 
+import com.alex.core.util.bcrypt.BCryptPasswordEncoder;
 import com.alex.db.domain.LitemallAdmin;
 import com.alex.db.service.LitemallAdminService;
 import com.alex.db.service.LitemallPermissionService;
@@ -63,7 +64,9 @@ public class AdminAuthorizingRealm extends AuthorizingRealm {
         if (adminList.size() == 0)
             throw new UnknownAccountException("找不到用户（" + username + "）的账号信息");
         LitemallAdmin admin = adminList.get(0);
-        BCryptPa
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (!encoder.matches(password, admin.getPassword()))
+            throw new UnknownAccountException("找不到用户（" + username + ")的账号信息");
         return new SimpleAuthenticationInfo(admin, password, getName());
     }
 }
